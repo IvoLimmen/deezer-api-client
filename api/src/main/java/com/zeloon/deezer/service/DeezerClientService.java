@@ -15,18 +15,18 @@
  */
 package com.zeloon.deezer.service;
 
-import com.zeloon.deezer.io.ResourceConnection;
-import org.codehaus.jackson.map.ObjectMapper;
-
 import java.io.IOException;
 
-public class DeezerRestTemplate {
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zeloon.deezer.io.ResourceConnection;
+
+public class DeezerClientService {
 
     private static final String DEEZER_URI = "http://api.deezer.com/";
 
     private ResourceConnection resourceConnection;
 
-    public DeezerRestTemplate(ResourceConnection resourceConnection) {
+    public DeezerClientService(ResourceConnection resourceConnection) {
         this.resourceConnection = resourceConnection;
     }
 

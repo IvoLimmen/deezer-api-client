@@ -15,14 +15,47 @@
  */
 package com.zeloon.deezer.client;
 
-import com.zeloon.deezer.domain.*;
-import com.zeloon.deezer.domain.internal.*;
-import com.zeloon.deezer.domain.internal.search.*;
-import com.zeloon.deezer.io.ResourceConnection;
-import com.zeloon.deezer.service.DeezerRestTemplate;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
+import com.zeloon.deezer.domain.Album;
+import com.zeloon.deezer.domain.Albums;
+import com.zeloon.deezer.domain.Artist;
+import com.zeloon.deezer.domain.ArtistRadio;
+import com.zeloon.deezer.domain.Artists;
+import com.zeloon.deezer.domain.Autocomplete;
+import com.zeloon.deezer.domain.Charts;
+import com.zeloon.deezer.domain.Comment;
+import com.zeloon.deezer.domain.Comments;
+import com.zeloon.deezer.domain.Editorial;
+import com.zeloon.deezer.domain.Fans;
+import com.zeloon.deezer.domain.Followers;
+import com.zeloon.deezer.domain.Followings;
+import com.zeloon.deezer.domain.Genres;
+import com.zeloon.deezer.domain.Infos;
+import com.zeloon.deezer.domain.Playlist;
+import com.zeloon.deezer.domain.Playlists;
+import com.zeloon.deezer.domain.Radio;
+import com.zeloon.deezer.domain.RadioGenres;
+import com.zeloon.deezer.domain.Related;
+import com.zeloon.deezer.domain.Top;
+import com.zeloon.deezer.domain.Track;
+import com.zeloon.deezer.domain.Tracks;
+import com.zeloon.deezer.domain.User;
+import com.zeloon.deezer.domain.Users;
+import com.zeloon.deezer.domain.internal.AlbumId;
+import com.zeloon.deezer.domain.internal.ArtistId;
+import com.zeloon.deezer.domain.internal.CommentId;
+import com.zeloon.deezer.domain.internal.PlaylistId;
+import com.zeloon.deezer.domain.internal.TrackId;
+import com.zeloon.deezer.domain.internal.UserId;
+import com.zeloon.deezer.domain.internal.search.Search;
+import com.zeloon.deezer.domain.internal.search.SearchAlbum;
+import com.zeloon.deezer.domain.internal.search.SearchArtist;
+import com.zeloon.deezer.domain.internal.search.SearchAutocomplete;
+import com.zeloon.deezer.domain.internal.search.SearchUser;
+import com.zeloon.deezer.io.ResourceConnection;
+import com.zeloon.deezer.service.DeezerClientService;
 
 public class DeezerClient {
 
@@ -32,10 +65,10 @@ public class DeezerClient {
     public static final String PREFIX_PLAYLIST = "playlist";
     public static final String PREFIX_TRACK = "track";
 
-    private DeezerRestTemplate baseService;
+    private DeezerClientService baseService;
 
     public DeezerClient(ResourceConnection resourceConnection) {
-        baseService = new DeezerRestTemplate(resourceConnection);
+        baseService = new DeezerClientService(resourceConnection);
     }
 
     public Album get(final AlbumId albumId) {

@@ -15,10 +15,9 @@
  */
 package com.zeloon.deezer.io;
 
-import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class FileSystemResourceConnection implements ResourceConnection {
 
@@ -107,7 +106,7 @@ public class FileSystemResourceConnection implements ResourceConnection {
 
     private String readFileToString(final String fileName) throws IOException {
         File file = new File(getClass().getClassLoader().getResource(fileName).getFile());
-        return FileUtils.readFileToString(file);
+        return Files.readString(file.toPath());
     }
 
 }

@@ -1,14 +1,14 @@
-deezer-api-client
-=================
+# README
+
+## Description
 
 Java wrapper for deezer api - http://developers.deezer.com/api/ supports
 all GET methods which don't need OAuth authentication
 
-### Artist examples
+### Code example
 
 ```java
-
-final DeezerClient deezerClient = new DeezerClient(new HttpResourceConnection());
+final DeezerClient deezerClient = new DeezerClient(new JdkHttpResourceConnection());
 
 final ArtistId daftPunkArtistId = new ArtistId(27L);
 
@@ -20,6 +20,4 @@ final Albums daftPunkAlbums = deezerClient.getAlbums(daftPunkArtistId);
 
 // get Daft Punk fans - http://api.deezer.com/artist/27/fans
 final Fans daftPunkFans = deezerClient.getFans(daftPunkArtistId);
-
 ```
-
